@@ -10,3 +10,7 @@ package-lock.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Internal maintainer documents belong outside this public repository.
+/docs/claude-submission.md
+/docs/tool-annotations.json

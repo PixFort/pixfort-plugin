@@ -45,11 +45,29 @@ require(manifest['skills'] == './skills/' and manifest['mcpServers'] == './.mcp.
         'Unexpected component paths')
 license_file = local('./LICENSE')
 require(license_file.is_file() and license_file.read_text().strip(), 'Missing license text')
+mcp = json.loads(local(manifest['mcpServers']).read_text())
+require(set(mcp['mcpServers']) == {'pixfort'}, 'Expected one pixfort MCP server')
+https(mcp['mcpServers']['pixfort']['url'])
 for client in ('.claude-plugin', '.cursor-plugin'):
     client_manifest = json.loads(local(f'./{client}/plugin.json').read_text())
     require(client_manifest['name'] == PACKAGE_NAME, f'Unexpected {client} name')
-    for field in ('version', 'repository', 'license', 'skills', 'mcpServers'):
+    for field in ('version', 'repository', 'license', 'skills'):
         require(client_manifest.get(field) == manifest[field], f'Mismatched {client} {field}')
+    expected_mcp = mcp
+    expected_mcp_path = manifest['mcpServers']
+    if client == '.claude-plugin':
+        expected_mcp_path = './.mcp.claude.json'
+        expected_mcp = {'mcpServers': {'pixfort': {
+            **mcp['mcpServers']['pixfort'],
+            'url': mcp['mcpServers']['pixfort']['url'] + '?tool_metadata=claude',
+        }}}
+        require(local(client_manifest['icon']).is_file(), 'Missing Claude listing icon')
+        for field in ('documentationUrl', 'supportUrl', 'privacyPolicyUrl', 'termsOfServiceUrl'):
+            https(client_manifest[field])
+    require(client_manifest['mcpServers'] == expected_mcp_path,
+            f'Unexpected {client} MCP configuration path')
+    require(json.loads(local(client_manifest['mcpServers']).read_text()) == expected_mcp,
+            f'Unexpected {client} MCP configuration')
     marketplace = json.loads(local(f'./{client}/marketplace.json').read_text())
     require(marketplace['name'] == PACKAGE_NAME and marketplace['owner']['name'],
             f'Invalid {client} marketplace identity')
@@ -73,9 +91,6 @@ for field in ('websiteURL', 'supportURL', 'privacyPolicyURL', 'termsOfServiceURL
     https(listing[field])
 require(len(listing['defaultPrompt']) <= 3 and
         all(0 < len(p) <= 128 for p in listing['defaultPrompt']), 'Invalid starter prompts')
-mcp = json.loads(local(manifest['mcpServers']).read_text())
-require(set(mcp['mcpServers']) == {'pixfort'}, 'Expected one pixfort MCP server')
-https(mcp['mcpServers']['pixfort']['url'])
 review = extension['review']
 require(not any(key in review for key in ('test_credentials', 'reviewer_instructions')),
         'Reviewer access belongs in the secure dashboard')

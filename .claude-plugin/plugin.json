@@ -10,10 +10,17 @@
     "demo-content"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
+  "mcpServers": "./.mcp.claude.json",
   "author": {
-    "name": "pixfort"
+    "name": "pixfort",
+    "email": "contact@pixfort.com",
+    "url": "https://pixfort.com"
   },
+  "icon": "./assets/directory-icon.png",
+  "documentationUrl": "https://github.com/PixFort/pixfort-plugin#readme",
+  "supportUrl": "https://pixfort.com/item-support",
+  "privacyPolicyUrl": "https://pixfort.com/privacy-policy",
+  "termsOfServiceUrl": "https://pixfort.com/terms",
   "homepage": "https://pixfort.com",
   "repository": "https://github.com/PixFort/pixfort-plugin",
   "license": "MIT"
