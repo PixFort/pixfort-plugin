@@ -1,0 +1,21 @@
+{
+  "name": "pixfort",
+  "version": "1.0.1",
+  "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server.",
+  "keywords": [
+    "pixfort",
+    "wordpress",
+    "elementor",
+    "website",
+    "demo-content"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "author": {
+    "name": "pixfort"
+  },
+  "homepage": "https://pixfort.com",
+  "logo": "assets/logo.svg",
+  "repository": "https://github.com/PixFort/pixfort-plugin",
+  "license": "MIT"
+}

@@ -1,0 +1,653 @@
+{
+  "description": "Maintainer review worksheet for the 54 active MCP tools. Not an OpenAI manifest and not included in the submission ZIP. Verify against the deployed tools/list response and use these justifications in the dashboard.",
+  "tools": {
+    "pixfort_get_post_options_schema": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves the selected site’s per-post option schemas and live choices without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_post_options": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads saved pixfort options for one content item without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_update_post_options": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Updates or clears supplied pixfort options for one content item.",
+        "open_world_justification": "Updating options on published content can immediately change its public styling, visibility, or template selection.",
+        "destructive_justification": "Can replace saved option values or remove an existing override."
+      }
+    },
+    "pixfort_list_connected_sites": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists WordPress sites enrolled by the authenticated pixfort account without changing connected account or site data.",
+        "open_world_justification": "Only accesses the authenticated pixfort account’s enrolled site list.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_builder_elements": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists supported builder elements for the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_builder_element_schema": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Builds an Elementor element schema using the selected site’s settings without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_search_icons": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Searches the bundled pixfort icon catalog without changing connected account or site data.",
+        "open_world_justification": "Uses a fixed pixfort catalog and cannot target an arbitrary external entity.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_search_demo_sections": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Searches the bundled Elementor demo section catalog without changing connected account or site data.",
+        "open_world_justification": "Uses a fixed pixfort catalog and cannot target an arbitrary external entity.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_demo_section": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Loads one bundled demo section for the selected site without changing connected account or site data.",
+        "open_world_justification": "Uses a fixed pixfort catalog and cannot target an arbitrary external entity.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_search_media_assets": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Searches the fixed pixfort media asset catalog without changing connected account or site data.",
+        "open_world_justification": "Uses a fixed pixfort catalog and cannot target an arbitrary external entity.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_builder_content": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads an existing Elementor content tree from the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_add_builder_content": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Appends Elementor content to an item on the selected site.",
+        "open_world_justification": "Appending a section to published content can immediately expose that section on the public website.",
+        "destructive_justification": "Adds new site data without deleting or overwriting an existing item."
+      }
+    },
+    "pixfort_update_builder_content": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Replaces one existing Elementor subtree on the selected site.",
+        "open_world_justification": "Editing a section on published content can immediately change the public website.",
+        "destructive_justification": "Replaces an existing Elementor subtree and can remove its previous content."
+      }
+    },
+    "pixfort_remove_builder_element": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Removes one Elementor element and its descendants from the selected site.",
+        "open_world_justification": "Removing an element from published content can immediately remove it from the public website.",
+        "destructive_justification": "Deletes the selected Elementor element and all its descendants."
+      }
+    },
+    "pixfort_get_header_schema": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves the selected site’s live header schema without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_header_elements": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists header elements available on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_header_element_schema": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves a header element schema with the selected site’s choices without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_header": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads one saved header from the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_create_header": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Creates a draft header on the selected site.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Adds new site data without deleting or overwriting an existing item."
+      }
+    },
+    "pixfort_update_header": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Updates a saved header and its bounded layout operations on the selected site.",
+        "open_world_justification": "Changing a published, active header can immediately affect public website navigation and layout.",
+        "destructive_justification": "Can overwrite header settings or remove existing header elements."
+      }
+    },
+    "pixfort_set_header_status": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Changes the publication status of a saved header on the selected site.",
+        "open_world_justification": "Publishing or unpublishing a header changes its availability to the public website and may change the active header.",
+        "destructive_justification": "Can unpublish a header that is currently visible on the site."
+      }
+    },
+    "pixfort_get_menu_schema": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Retrieves the selected site’s live classic-menu schema without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_menus": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists classic menus on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_menu": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads one classic menu’s metadata on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_create_menu": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Creates an empty classic menu on the selected site.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Adds new site data without deleting or overwriting an existing item."
+      }
+    },
+    "pixfort_update_menu": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Renames one classic menu on the selected site.",
+        "open_world_justification": "Updating a menu used by a public header or widget can immediately change public navigation.",
+        "destructive_justification": "Overwrites the saved name of an existing menu."
+      }
+    },
+    "pixfort_delete_menu": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Permanently deletes one classic menu and its items on the selected site.",
+        "open_world_justification": "Deleting a menu can immediately remove navigation used by the public website.",
+        "destructive_justification": "Permanently deletes the selected menu and all of its items."
+      }
+    },
+    "pixfort_get_menu_items": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads the item tree of one classic menu on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_add_menu_item": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Adds one item to a classic menu on the selected site.",
+        "open_world_justification": "Adding an item to an active menu can immediately expose a link on the public website.",
+        "destructive_justification": "Adds new site data without deleting or overwriting an existing item."
+      }
+    },
+    "pixfort_update_menu_item": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Updates an existing classic-menu item on the selected site.",
+        "open_world_justification": "Updating an active menu item can immediately change a public link, label, or hierarchy.",
+        "destructive_justification": "Can overwrite a menu item’s destination, content, or placement."
+      }
+    },
+    "pixfort_delete_menu_item": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Deletes a classic-menu item with the requested child handling.",
+        "open_world_justification": "Deleting an active menu item can immediately remove a public navigation link.",
+        "destructive_justification": "Permanently deletes the selected item and can delete its subtree."
+      }
+    },
+    "pixfort_get_site_status": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads WordPress, theme, plugin, and connector status for the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_theme_styles": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads pixfort and Elementor global styles for the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_theme_options": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists the selected site’s theme options and their schemas without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_theme_option": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads one theme option and its allowed values on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_update_theme_option": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Updates a theme option on the selected site unless validation-only mode is requested.",
+        "open_world_justification": "Saving theme options can immediately change public website appearance, navigation, or behavior.",
+        "destructive_justification": "Can overwrite the current value of a site-wide theme option."
+      }
+    },
+    "pixfort_set_default_website_header": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Replaces the selected site’s default website header assignment.",
+        "open_world_justification": "Selecting a default header can immediately change the header shown to public website visitors.",
+        "destructive_justification": "Replaces the site-wide fallback header assignment."
+      }
+    },
+    "pixfort_set_default_website_footer": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Replaces the selected site’s default website footer assignment.",
+        "open_world_justification": "Selecting a default footer can immediately change the footer shown to public website visitors.",
+        "destructive_justification": "Replaces the site-wide fallback footer assignment."
+      }
+    },
+    "pixfort_search_builder_items": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Searches existing pixfort headers, footers, popups, intros, and templates on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_template_display_conditions": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads display conditions for one template on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_search_display_condition_targets": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Searches valid site content, taxonomy, or author targets for a condition without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_add_template_display_condition": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Adds an include or exclude display condition to a site template.",
+        "open_world_justification": "Adding a rule to a published template can change where it appears on the public website.",
+        "destructive_justification": "Can add an exclusion that suppresses a template on matching site content."
+      }
+    },
+    "pixfort_remove_template_display_condition": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Removes one display condition from a site template.",
+        "open_world_justification": "Removing a rule from a published template can change where it appears on the public website.",
+        "destructive_justification": "Removes an existing rule and can change where a template appears."
+      }
+    },
+    "pixfort_get_applied_templates_for_content": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Computes pixfort templates effective for one site content item without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_posts": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists posts or eligible public custom content on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_post": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads one post or eligible public custom content item on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_pages": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists pages on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_page": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads one page on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_list_media": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Lists media attachments on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_get_media": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Reads one media attachment on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_import_media": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Imports a catalog asset or user-supplied public HTTPS file into the selected site’s media library.",
+        "open_world_justification": "Can fetch a user-supplied public HTTPS file from an arbitrary external host before importing it into an enrolled site.",
+        "destructive_justification": "Adds new site data without deleting or overwriting an existing item."
+      }
+    },
+    "pixfort_search_content": {
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Searches eligible content titles on the selected site without changing connected account or site data.",
+        "open_world_justification": "Only operates within a WordPress site enrolled by the authenticated pixfort account.",
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible site action."
+      }
+    },
+    "pixfort_create_content": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Creates a WordPress content item and can set its metadata and status.",
+        "open_world_justification": "Although draft is the default and publish is rejected, scheduled or custom public statuses can cause content to become publicly available.",
+        "destructive_justification": "Scheduled or custom public statuses can publish content and trigger external effects beyond a reversible draft creation; draft-only inputs are not the full tool behavior."
+      }
+    },
+    "pixfort_edit_content": {
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Updates or publishes an existing WordPress content item on the selected site.",
+        "open_world_justification": "Editing content or changing its status can publish, unpublish, or immediately alter public website content.",
+        "destructive_justification": "Can overwrite content, publish it, or move a reusable template to Trash."
+      }
+    }
+  }
+}

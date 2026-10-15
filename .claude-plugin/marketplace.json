@@ -1,0 +1,16 @@
+{
+  "name": "pixfort",
+  "owner": {
+    "name": "pixfort"
+  },
+  "metadata": {
+    "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server."
+  },
+  "plugins": [
+    {
+      "name": "pixfort",
+      "source": "./",
+      "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server."
+    }
+  ]
+}

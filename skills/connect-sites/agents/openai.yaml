@@ -1,0 +1,7 @@
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "pixfort"
+      description: "Connect and manage enrolled pixfort WordPress sites"
+      transport: "streamable_http"
+      url: "https://mcp.pixfort.com/mcp"

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pixfort": {
+      "type": "http",
+      "url": "https://mcp.pixfort.com/mcp"
+    }
+  }
+}

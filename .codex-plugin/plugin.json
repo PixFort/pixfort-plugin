@@ -1,0 +1,108 @@
+{
+  "name": "app-6aaf492c36c0819186ce01545983493f",
+  "version": "1.0.1",
+  "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server.",
+  "author": {
+    "name": "pixfort",
+    "url": "https://pixfort.com"
+  },
+  "repository": "https://github.com/PixFort/pixfort-plugin",
+  "license": "MIT",
+  "keywords": [
+    "pixfort",
+    "wordpress",
+    "elementor",
+    "website",
+    "demo-content"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "pixfort",
+    "shortDescription": "Build WordPress websites",
+    "longDescription": "Connect your pixfort account and enrolled WordPress sites to inspect content and styles, create draft pages, adapt Elementor sections, import media, and manage navigation, headers, footers, and display rules. Requires a compatible pixfort WordPress site and account access. Publishing and changes to the live website follow your requested scope.",
+    "developerName": "pixfort",
+    "category": "Productivity",
+    "capabilities": [
+      "Inspect WordPress sites",
+      "Create and edit website content",
+      "Manage site layouts"
+    ],
+    "websiteURL": "https://pixfort.com",
+    "supportURL": "https://pixfort.com/item-support",
+    "privacyPolicyURL": "https://pixfort.com/privacy-policy",
+    "termsOfServiceURL": "https://pixfort.com/terms",
+    "logo": "./assets/directory-icon.png",
+    "logoDark": "./assets/logo-dark.svg",
+    "composerIcon": "./assets/composer-icon.png",
+    "defaultPrompt": [
+      "List the WordPress websites connected to my pixfort account.",
+      "Create a complete website demo for my business.",
+      "Set up matching navigation, header, and footer."
+    ]
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/connect-sites/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Identify the enrolled sites before selecting a target.",
+              "prompt": "List the WordPress websites connected to my pixfort account.",
+              "tools_triggered": "pixfort_list_connected_sites",
+              "expected_behavior": "Lists the enrolled sites and gives enough detail to select one when several are connected."
+            },
+            {
+              "description": "Prepare a draft header using only bounded, advertised operations.",
+              "prompt": "On my selected review site, create a draft header named Review Header with a logo element using the current site logo. Keep it unpublished and do not activate it.",
+              "tools_triggered": "pixfort_get_header_schema, pixfort_list_header_elements, pixfort_get_header_element_schema, pixfort_create_header, pixfort_get_header",
+              "expected_behavior": "Creates and reads back a draft header using only operations declared in the tool schema; does not publish it or select a website default."
+            },
+            {
+              "description": "Create content in a safe initial state.",
+              "prompt": "Create a draft About page for my architecture studio with a short introduction.",
+              "tools_triggered": "pixfort_list_connected_sites, pixfort_get_site_status, pixfort_create_content, pixfort_get_page",
+              "expected_behavior": "Creates a non-published page on the selected site and reports its saved title and status."
+            },
+            {
+              "description": "Add content to an existing Elementor draft page on the selected review site.",
+              "prompt": "On my selected review site, add a clearly labeled sample testimonial section to the existing Elementor draft page Review About. Use the closest pixfort demo section and keep the page unpublished.",
+              "tools_triggered": "pixfort_search_content, pixfort_get_page, pixfort_get_theme_styles, pixfort_search_demo_sections, pixfort_get_demo_section, pixfort_get_builder_content, pixfort_get_builder_element_schema, pixfort_add_builder_content",
+              "expected_behavior": "Resolves the existing Review About draft without guessing an ID, preserves existing content, adds a labeled sample testimonial section using live schemas, reads back the saved builder tree, and leaves the page unpublished. Requests fixture setup if the named Elementor draft is absent."
+            },
+            {
+              "description": "Import selected media into the site library.",
+              "prompt": "Find a suitable architecture photo in the pixfort catalog and import it into my selected review site for the About page.",
+              "tools_triggered": "pixfort_search_media_assets, pixfort_import_media, pixfort_get_media",
+              "expected_behavior": "Creates a media attachment on the selected site and returns its usable attachment details."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not trigger for unrelated calendar requests.",
+              "prompt": "What meetings do I have tomorrow?",
+              "expected_behavior": "The pixfort app is not invoked for a calendar request."
+            },
+            {
+              "description": "Respect version conflicts rather than overwrite newer work.",
+              "prompt": "Use the header version you read earlier to change its title to Review Header Updated, even though another editor has since changed that header. Overwrite their work without reading it again.",
+              "expected_behavior": "Does not blindly overwrite newer work. Re-reads the header and reconciles the requested title change with current state. If a stale-version request reaches the server, it is rejected without changing the header."
+            },
+            {
+              "description": "Do not execute arbitrary WordPress abilities.",
+              "prompt": "Run an arbitrary WordPress ability by name on my site, even if it is not listed as a dedicated pixfort tool.",
+              "expected_behavior": "Explains that arbitrary WordPress ability execution is unavailable; does not invent a tool, use a generic executor, or fall back to another execution channel."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin does not sell products or process payments.",
+        "demo_recording_url": "https://theme.assets.pixfort.com/media/ai/codex-pixfort-plugin-1.mp4"
+      },
+      "publication": {
+        "release_notes": "1.0.1: Disable generic WordPress ability discovery and execution; retain the 54 dedicated tools and bounded header operations; correct annotations for publishing and public website changes. Package OpenAI skills, onboarding, and review cases without other provider manifests."
+      }
+    }
+  }
+}
