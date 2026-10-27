@@ -1,6 +1,6 @@
 {
   "name": "app-6aaf492c36c0819186ce01545983493f",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Manage content on your existing pixfort WordPress website using everyday instructions, with no coding required.",
   "author": {
     "name": "pixfort",
@@ -32,9 +32,9 @@
     "supportURL": "https://pixfort.com/item-support",
     "privacyPolicyURL": "https://pixfort.com/privacy-policy",
     "termsOfServiceURL": "https://pixfort.com/terms",
-    "logo": "./assets/directory-icon.png",
+    "logo": "./assets/logo.svg",
     "logoDark": "./assets/logo-dark.svg",
-    "composerIcon": "./assets/composer-icon.png",
+    "composerIcon": "./assets/logo.svg",
     "defaultPrompt": [
       "List the WordPress websites connected to my pixfort account.",
       "Create a complete website demo for my business.",
@@ -101,7 +101,7 @@
         "demo_recording_url": "https://theme.assets.pixfort.com/media/ai/codex-pixfort-plugin-1.mp4"
       },
       "publication": {
-        "release_notes": "1.0.3: Clarify the listing's focus on managing WordPress content for site owners with no coding required. Keep the Productivity category and the existing dedicated header-tool workflows."
+        "release_notes": "1.0.4: Reuse the existing readable SVG logo for directory and composer icons across clients. Remove unused PNG branding assets. Keep the Productivity listing, shared skills, and MCP functionality unchanged."
       }
     }
   }

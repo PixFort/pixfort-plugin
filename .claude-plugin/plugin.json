@@ -1,6 +1,6 @@
 {
   "name": "pixfort",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Manage content on your existing pixfort WordPress website using everyday instructions, with no coding required.",
   "keywords": [
     "pixfort",
@@ -16,7 +16,7 @@
     "email": "contact@pixfort.com",
     "url": "https://pixfort.com"
   },
-  "icon": "./assets/directory-icon.png",
+  "icon": "./assets/logo.svg",
   "documentationUrl": "https://github.com/PixFort/pixfort-plugin#readme",
   "supportUrl": "https://pixfort.com/item-support",
   "privacyPolicyUrl": "https://pixfort.com/privacy-policy",
