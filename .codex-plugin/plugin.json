@@ -1,6 +1,6 @@
 {
   "name": "app-6aaf492c36c0819186ce01545983493f",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server.",
   "author": {
     "name": "pixfort",
@@ -54,10 +54,10 @@
               "expected_behavior": "Lists the enrolled sites and gives enough detail to select one when several are connected."
             },
             {
-              "description": "Prepare a draft header using only bounded, advertised operations.",
+              "description": "Create a draft header and add a logo using separately exposed header tools.",
               "prompt": "On my selected review site, create a draft header named Review Header with a logo element using the current site logo. Keep it unpublished and do not activate it.",
-              "tools_triggered": "pixfort_get_header_schema, pixfort_list_header_elements, pixfort_get_header_element_schema, pixfort_create_header, pixfort_get_header",
-              "expected_behavior": "Creates and reads back a draft header using only operations declared in the tool schema; does not publish it or select a website default."
+              "tools_triggered": "pixfort_get_header_schema, pixfort_list_header_elements, pixfort_get_header_element_schema, pixfort_create_header_draft, pixfort_get_header, pixfort_add_header_element",
+              "expected_behavior": "Creates an empty draft header, inspects it, adds one logo with pixfort_add_header_element using the current version, and reads back the saved header. Does not publish it or select a website default. Does not call the retired batch tools or send an operations array."
             },
             {
               "description": "Create content in a safe initial state.",
@@ -101,7 +101,7 @@
         "demo_recording_url": "https://theme.assets.pixfort.com/media/ai/codex-pixfort-plugin-1.mp4"
       },
       "publication": {
-        "release_notes": "1.0.1: Disable generic WordPress ability discovery and execution; retain the 54 dedicated tools and bounded header operations; correct annotations for publishing and public website changes. Package OpenAI skills, onboarding, and review cases without other provider manifests."
+        "release_notes": "1.0.2: Replace the two public header batch tools with nine dedicated tools for draft creation, general settings, columns, areas, and elements. Update header workflows and review examples. The hosted MCP server reuses existing Pixfort Core Header MCP v1 endpoints; no new WordPress plugin update is required."
       }
     }
   }
