@@ -1,7 +1,7 @@
 {
   "name": "app-6aaf492c36c0819186ce01545983493f",
-  "version": "1.0.2",
-  "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server.",
+  "version": "1.0.3",
+  "description": "Manage content on your existing pixfort WordPress website using everyday instructions, with no coding required.",
   "author": {
     "name": "pixfort",
     "url": "https://pixfort.com"
@@ -19,8 +19,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "pixfort",
-    "shortDescription": "Build WordPress websites",
-    "longDescription": "Connect your pixfort account and enrolled WordPress sites to inspect content and styles, create draft pages, adapt Elementor sections, import media, and manage navigation, headers, footers, and display rules. Requires a compatible pixfort WordPress site and account access. Publishing and changes to the live website follow your requested scope.",
+    "shortDescription": "Manage your WordPress website",
+    "longDescription": "Manage content on your existing WordPress website using everyday instructions. Create and edit pages and posts, update text and images, and adjust menus, headers, footers, and page layouts. Designed for WordPress site owners, with no coding required. Requires a connected pixfort account and a compatible WordPress site using a pixfort theme.",
     "developerName": "pixfort",
     "category": "Productivity",
     "capabilities": [
@@ -101,7 +101,7 @@
         "demo_recording_url": "https://theme.assets.pixfort.com/media/ai/codex-pixfort-plugin-1.mp4"
       },
       "publication": {
-        "release_notes": "1.0.2: Replace the two public header batch tools with nine dedicated tools for draft creation, general settings, columns, areas, and elements. Update header workflows and review examples. The hosted MCP server reuses existing Pixfort Core Header MCP v1 endpoints; no new WordPress plugin update is required."
+        "release_notes": "1.0.3: Clarify the listing's focus on managing WordPress content for site owners with no coding required. Keep the Productivity category and the existing dedicated header-tool workflows."
       }
     }
   }

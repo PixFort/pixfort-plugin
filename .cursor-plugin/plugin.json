@@ -1,7 +1,7 @@
 {
   "name": "pixfort",
-  "version": "1.0.2",
-  "description": "Connect pixfort WordPress sites and create coordinated website content through the pixfort MCP server.",
+  "version": "1.0.3",
+  "description": "Manage content on your existing pixfort WordPress website using everyday instructions, with no coding required.",
   "keywords": [
     "pixfort",
     "wordpress",
